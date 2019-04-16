@@ -6,13 +6,15 @@ DEPENDENCES_DEBIAN+=( node@nodejs )
 NODE_VERSION_PREFIX=${NODE_VERSION_PREFIX:-" "}
 NODE_VERSION_SUFIX=${NODE_VERSION_SUFIX:-""}
 
+DEPENDENCES_ZSH+=( zpm-zsh/zsh-helpers )
+
 _node_version_pre() {
 
   if (( $+commands[node] )); then
-    if _ZPM-recursive-exist package.json >/dev/null ; then
+    if is-recursive-exist package.json >/dev/null ; then
       pr_node="$NODE_VERSION_PREFIX"
 
-      if _ZPM-recursive-exist gulpfile.js   >/dev/null || _ZPM-recursive-exist gulpfile.babel.js >/dev/null ; then
+      if is-recursive-exist gulpfile.js   >/dev/null || is-recursive-exist gulpfile.babel.js >/dev/null ; then
         if [[ $CLICOLOR = 1 ]]; then
           pr_node+="%{$fg_bold[green]%} "
         else
@@ -20,7 +22,7 @@ _node_version_pre() {
         fi
       fi
 
-      if _ZPM-recursive-exist Gruntfile.js   >/dev/null ; then
+      if is-recursive-exist Gruntfile.js   >/dev/null ; then
         if [[ $CLICOLOR = 1 ]]; then
           pr_node+="%{$fg_bold[green]%} "
         else
@@ -28,7 +30,7 @@ _node_version_pre() {
         fi
       fi
 
-      if _ZPM-recursive-exist webpack.config.js   >/dev/null ; then
+      if is-recursive-exist webpack.config.js   >/dev/null ; then
         if [[ $CLICOLOR = 1 ]]; then
           pr_node+="%{$fg_bold[green]%}ﰩ "
         else

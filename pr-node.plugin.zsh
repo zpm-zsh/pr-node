@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 DEPENDENCES_ZSH+=( zpm-zsh/helpers )
-
 DEPENDENCES_ARCH+=( node@nodejs )
 DEPENDENCES_DEBIAN+=( node@nodejs )
 
@@ -48,7 +47,6 @@ _node_version_pre() {
       fi
 
       pr_node+="$NODE_VERSION_SUFIX"
-
 
     else
       pr_node=""

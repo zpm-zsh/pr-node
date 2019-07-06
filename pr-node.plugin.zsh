@@ -41,9 +41,9 @@ _node_version_pre() {
       nodev=$(node -v)
       nodev=${nodev#'v'}
       if [[ $CLICOLOR = 1 ]]; then
-        pr_node+="%{$fg_bold[green]%} %{$fg_bold[blue]%}$nodev%{$reset_color%}"
+        pr_node+="%{$fg_bold[green]%}⬡ %{$fg_bold[blue]%}$nodev%{$reset_color%}"
       else
-        pr_node+=" $nodev"
+        pr_node+="⬡ $nodev"
       fi
 
       pr_node+="$NODE_VERSION_SUFIX"

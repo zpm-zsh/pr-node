@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 
 DEPENDENCES_ZSH+=( zpm-zsh/helpers zpm-zsh/colors )
-DEPENDENCES_ARCH+=( node@nodejs )
-DEPENDENCES_DEBIAN+=( node@nodejs )
 
 NODE_VERSION_PREFIX=${NODE_VERSION_PREFIX:-" "}
 NODE_VERSION_SUFIX=${NODE_VERSION_SUFIX:-""}

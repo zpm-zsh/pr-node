@@ -9,7 +9,7 @@ if command -v zpm >/dev/null; then
   zpm zpm-zsh/helpers zpm-zsh/colors
 fi
 
-_node_version_pre() {
+_pr_node() {
   
   if (( $+commands[node] )); then
     if is-recursive-exist package.json >/dev/null ; then
@@ -56,5 +56,5 @@ _node_version_pre() {
   
 }
 
-add-zsh-hook
-add-zsh-hook chpwd _node_version_pre
+_pr_node
+add-zsh-hook chpwd _pr_node

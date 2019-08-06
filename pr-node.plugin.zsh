@@ -55,5 +55,6 @@ _node_version_pre() {
   pr_node=""
   
 }
-chpwd_functions+=(_node_version_pre)
-periodic_functions+=(_node_version_pre)
+
+add-zsh-hook
+add-zsh-hook chpwd _node_version_pre

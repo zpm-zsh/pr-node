@@ -6,7 +6,7 @@ NODE_VERSION_PREFIX=${NODE_VERSION_PREFIX:-" "}
 NODE_VERSION_SUFIX=${NODE_VERSION_SUFIX:-""}
 
 if (( $+functions[zpm] )); then
-  zpm zpm-zsh/helpers zpm-zsh/colors
+  zpm zpm-zsh/helpers,inline zpm-zsh/colors,inline
 fi
 
 _pr_node() {

@@ -2,7 +2,9 @@
 
 DEPENDENCES_ZSH+=( zpm-zsh/helpers zpm-zsh/colors )
 
+typeset -g NODE_VERSION_PREFIX
 NODE_VERSION_PREFIX=${NODE_VERSION_PREFIX:-" "}
+typeset -g NODE_VERSION_SUFIX
 NODE_VERSION_SUFIX=${NODE_VERSION_SUFIX:-""}
 
 if (( $+functions[zpm] )); then
@@ -10,6 +12,7 @@ if (( $+functions[zpm] )); then
 fi
 
 _pr_node() {
+  typeset -g pr_node
   if (( $+commands[node] )); then
     if is-recursive-exist package.json >/dev/null ; then
       pr_node="$NODE_VERSION_PREFIX"

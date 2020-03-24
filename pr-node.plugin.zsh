@@ -1,12 +1,9 @@
 #!/usr/bin/env zsh
 
-typeset -g NODE_VERSION_PREFIX=${NODE_VERSION_PREFIX:-" "}
-typeset -g NODE_VERSION_SUFIX=${NODE_VERSION_SUFIX:-""}
-typeset -g pr_node
+: ${NODE_VERSION_PREFIX:=" "}
+: ${NODE_VERSION_SUFIX:=""}
 
-if (( $+functions[zpm] )); then #DO_NOT_INCLUDE_LINE_IN_ZPM_CACHE
-  zpm zpm-zsh/helpers zpm-zsh/colors #DO_NOT_INCLUDE_LINE_IN_ZPM_CACHE
-fi #DO_NOT_INCLUDE_LINE_IN_ZPM_CACHE
+typeset -g pr_node
 
 if (( $+commands[node] )); then
   function _pr_node() {

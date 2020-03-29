@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
-: ${NODE_VERSION_PREFIX:=" "}
-: ${NODE_VERSION_SUFIX:=""}
+: ${NODE_VERSION_PREFIX:=' '}
+: ${NODE_VERSION_SUFIX:=''}
 
 typeset -g pr_node
 
 if (( $+commands[node] )); then
   function _pr_node() {
-    pr_node=""
+    pr_node=''
 
     if is-recursive-exist package.json; then
       pr_node="$NODE_VERSION_PREFIX"

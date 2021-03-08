@@ -27,7 +27,7 @@ if (( $+commands[node] )); then
       nodev=$(node -v)
       nodev=${nodev#'v'}
 
-      pr_node+="%{${c[green]}${c[bold]}%}%{${c[reset]}%} %{${c[blue]}${c[bold]}%}$nodev%{${c[reset]}%}"
+      pr_node+="%{${c[green]}${c[bold]}%}%{${c[reset]}%} %{${c[blue]}${c[bold]}%}$nodev%{${c[reset]}%}"
       pr_node+="$NODE_VERSION_SUFIX"
     fi
   }

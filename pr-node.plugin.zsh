@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
-: ${NODE_VERSION_PREFIX:=' '}
-: ${NODE_VERSION_SUFIX:=''}
+: ${PR_NODE_GULPFILE:=''}
+: ${PR_NODE_WEBPACK:='ﰩ'}
+: ${PR_NODE_SYMBOL:=''}
 
 typeset -g pr_node
 
@@ -10,14 +11,10 @@ if (( $+commands[node] )); then
     pr_node=''
 
     if is-recursive-exist package.json; then
-      pr_node="$NODE_VERSION_PREFIX"
+      pr_node=' '
 
       if is-recursive-exist gulpfile.js || is-recursive-exist gulpfile.babel.js; then
-        pr_node+="%{${c[red]}${c[bold]}${c[dim]}%}%{${c[reset]}%} "
-      fi
-
-      if is-recursive-exist Gruntfile.js; then
-        pr_node+="%{${c[yellow]}${c[bold]}${c[dim]}%}%{${c[reset]}%} "
+        pr_node+="%{${c[red]}${c[bold]}${c[dim]}%}${NODE_GULPFILE}%{${c[reset]}%} "
       fi
 
       if is-recursive-exist webpack.config.js; then
@@ -27,8 +24,7 @@ if (( $+commands[node] )); then
       nodev=$(node -v)
       nodev=${nodev#'v'}
 
-      pr_node+="%{${c[springgreen]}${c[bold]}%}%{${c[reset]}%} %{${c[blue]}${c[bold]}%}$nodev%{${c[reset]}%}"
-      pr_node+="$NODE_VERSION_SUFIX"
+      pr_node+="%{${c[springgreen]}${c[bold]}%}${PR_NODE_SYMBOL}%{${c[reset]}%} %{${c[blue]}${c[bold]}%}$nodev%{${c[reset]}%}"
     fi
   }
 

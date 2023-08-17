@@ -9,14 +9,12 @@ if (( $+commands[node] )); then
     pr_node=''
 
     if is-recursive-exist package.json; then
-      pr_node=" %{${c[base3]}${c[bold]}%}(%{${c[reset]}%}"
+      pr_node=' '
 
       nodev=$(node -v)
       nodev=${nodev#'v'}
 
       pr_node+="%{${c[green]}${c[bold]}%}${PR_NODE_SYMBOL}%{${c[reset]}%} %{${c[green]}${c[bold]}%}$nodev%{${c[reset]}%}"
-
-      pr_node+="%{${c[base3]}${c[bold]}%})%{${c[reset]}%}"
     fi
   }
 

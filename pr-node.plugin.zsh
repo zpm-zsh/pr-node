@@ -8,6 +8,11 @@ if (( $+commands[node] )); then
   function _pr_node() {
     pr_node=''
 
+    # Skip rendering in narrow terminals; guard against unset $COLUMNS.
+    if (( ${COLUMNS:-0} < 100 )); then
+      return 0
+    fi
+
     if is-recursive-exist package.json; then
       pr_node=' '
 
